@@ -10,14 +10,14 @@
   
 - ### 3. 计算每个item的总价格
   * 输入： cartItemDetails：[{itemCode:string,name:string,quantiy:int,unitPrice:int}]
-  * 输出：cartItemDetailsWithTotalPrice：[{itemCode:string,name:string,quantiy:int,unitPrice:int,totalPrice:int}]
+  * 输出：eachItemTotalPrice：[{itemCode:string,name:string,quantiy:int,unitPrice:int,totalPrice:int}]
 
 - ### 4. 计算所有item的总价
-  * 输入：cartItemDetailsWithTotalPrice：[{itemCode:string,name:string,quantiy:int,unitPrice:int,totalPrice:int}]
+  * 输入：eachItemTotalPrice：[{itemCode:string,name:string,quantiy:int,unitPrice:int,totalPrice:int}]
   * 输出：totalPrice
 
 - ### 5. 格式化数据
-  * 输入：cartItemDetailsWithTotalPrice：[{itemCode:string,name:string,quantiy:int,unitPrice:int,totalPrice:int}]，totalPrice
+  * 输入：eachItemTotalPrice：[{itemCode:string,name:string,quantiy:int,unitPrice:int,totalPrice:int}]，totalPrice
   * 输出：receipt:string
 
 - ### 6. 输出数据
@@ -25,7 +25,7 @@
   * 输出：console.log(receipt)
 
 
-!['receipt_contextMap'](./receipt_contextMap.png)
+!['receipt_contextMap'](./receipt_contextMap_v2.png)
 
   
 caluItemNum()|Description
@@ -56,7 +56,7 @@ D|2min
 C|这个只用一个foreach循环，然后得出每个item的totalPrice的和
 A|这个比较简单
 
-fomatReceipt()|Description
+| fomatReceipt() | Description |
 --|:--:|--:
 P|5min
 D|5min

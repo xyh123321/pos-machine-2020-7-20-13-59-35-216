@@ -1,3 +1,4 @@
+//to do: context-map add dataBase
 function dataBase() {
     let data =  [
         {
@@ -38,9 +39,9 @@ function dataBase() {
 function printReceipt(barcodes) {
     let cartItems = caluItemNum(barcodes);
     let cartItemDetails = getItemDetails(cartItems);
-    let cartItemDetailsWithTotalPrice = caluEachItemTotalPrice(cartItemDetails);
-    let totalPrice = caluAllItemTotalPrice(cartItemDetailsWithTotalPrice);
-    let receipt = fomatReceipt(cartItemDetailsWithTotalPrice, totalPrice);
+    let eachItemTotalPrice = caluEachItemTotalPrice(cartItemDetails);
+    let totalPrice = caluAllItemTotalPrice(eachItemTotalPrice);
+    let receipt = fomatReceipt(eachItemTotalPrice, totalPrice);
     console.log(receipt);
 }
 
@@ -85,21 +86,21 @@ function caluEachItemTotalPrice(cartItemDetails) {
     return cartItemDetails;
 }
 
-function caluAllItemTotalPrice(cartItemDetailsWithTotalPrice) {
+function caluAllItemTotalPrice(eachItemTotalPrice) {
     let totalPrice = 0;
-    cartItemDetailsWithTotalPrice.forEach(e => {
+    eachItemTotalPrice.forEach(e => {
         totalPrice = totalPrice + e.totalPrice;
     });
     return totalPrice;
 }
 
-function fomatReceipt(cartItemDetailsWithTotalPrice, totalPrice) {
+function fomatReceipt(eachItemTotalPrice, totalPrice) {
     let receiptInfo = '';
     let receipt = '';
-    for (let i = 0; i < cartItemDetailsWithTotalPrice.length; i++) {
-        const e = cartItemDetailsWithTotalPrice[i];
+    for (let i = 0; i < eachItemTotalPrice.length; i++) {
+        const e = eachItemTotalPrice[i];
         receiptInfo = receiptInfo + `Name: ${e.name}, Quantity: ${e.quantity}, Unit price: ${e.price} (yuan), Subtotal: ${e.totalPrice} (yuan)`;
-        if(i < cartItemDetailsWithTotalPrice.length-1) {
+        if(i < eachItemTotalPrice.length-1) {
             receiptInfo += '\n';
         }
     }
